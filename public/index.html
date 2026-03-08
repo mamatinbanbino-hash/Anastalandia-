@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Anastalandia</title>
+    
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    <script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
+
+    <style>
+        body { margin: 0; background: #000; font-family: sans-serif; overflow: hidden; touch-action: none; }
+        #ui-layer { position: fixed; top: 10px; right: 10px; z-index: 100; pointer-events: none; }
+        #leaderboard { background: rgba(0,0,0,0.8); color: gold; padding: 8px; border-radius: 5px; font-size: 12px; margin-bottom: 5px; }
+        #mic-btn { background: #ef4444; color: white; border: none; padding: 10px; border-radius: 20px; pointer-events: auto; cursor: pointer; }
+        #chat-box { position: fixed; bottom: 10px; left: 10px; width: 250px; background: rgba(0,0,0,0.7); padding: 10px; border-radius: 10px; pointer-events: auto; }
+        #chat { height: 100px; overflow-y: auto; color: white; font-size: 12px; }
+        input { width: 70%; background: #222; color: white; border: 1px solid #444; padding: 5px; }
+    </style>
+</head>
+<body>
+    <div id="ui-layer">
+        <div id="leaderboard">🏆 <span id="score-list">Chargement...</span></div>
+        <button id="mic-btn" onclick="toggleMic()">🎤 MICRO OFF</button>
+    </div>
+    <div id="chat-box">
+        <div id="chat"></div>
+        <input type="text" id="m" placeholder="Message..."><button onclick="sendMessage()">➤</button>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>
